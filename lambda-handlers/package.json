@@ -1,0 +1,81 @@
+{
+    "name": "@enter-at/lambda-handlers",
+    "version": "0.0.3",
+    "description": "An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation, error handling and response formatting.",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist/**/*"
+    ],
+    "scripts": {
+        "lint": "tslint -p tsconfig.json",
+        "test": "NODE_ENV=testing jest -b --reporters jest-dot-reporter",
+        "test:verbose": "npm run test -- --reporters default",
+        "test:coverage": "npm run test -- --coverage",
+        "test:ci": "npm run test:coverage:verbose -- --ci --reporters=jest-junit",
+        "build": "npm run clean && npm run compile",
+        "compile": "tsc",
+        "clean": "rimraf ./dist",
+        "prepare" : "npm run build",
+        "preversion" : "npm run lint",
+        "prepublishOnly" : "npm test && npm run lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/enter-at/aws-node.git"
+    },
+    "keywords": [
+        "AWS",
+        "Lambda",
+        "Typescript"
+    ],
+    "author": "Steffen Leistner",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/enter-at/aws-node/issues"
+    },
+    "homepage": "https://github.com/enter-at/aws-node#readme",
+    "dependencies": {
+        "aws-lambda": "^0.1.2",
+        "aws-sdk": "^2.580.0",
+        "http-status-codes": "^1.4.0"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.36",
+        "@types/aws-sdk": "^2.7.0",
+        "@types/faker": "^4.1.8",
+        "@types/http-status-codes": "^1.2.0",
+        "@types/jest": "^24.0.23",
+        "faker": "^4.1.0",
+        "husky": "^3.1.0",
+        "jest": "^24.9.0",
+        "jest-dot-reporter": "^1.0.12",
+        "jest-junit": "^9.0.0",
+        "rimraf": "^3.0.0",
+        "ts-jest": "^24.2.0",
+        "tslint": "^5.20.1",
+        "typescript": "^3.7.2"
+    },
+    "jest": {
+        "verbose": true,
+        "preset": "ts-jest",
+        "testEnvironment": "node",
+        "coverageDirectory": "test-reports",
+        "roots": [
+            "src"
+        ],
+        "reporters": [
+            "default",
+            "jest-junit"
+        ]
+    },
+    "jest-junit": {
+        "outputDirectory": "test-reports/jest",
+        "outputName": "report.xml"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint && npm run test -- -b"
+        }
+    }
+}
