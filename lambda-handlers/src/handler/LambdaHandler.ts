@@ -19,16 +19,19 @@ export abstract class LambdaHandler {
     }
 
     public decorator(target: object, propertyName: string, propertyDescriptor: PropertyDescriptor): PropertyDescriptor {
-        propertyDescriptor.value = this.wrapper(target, propertyDescriptor.value);
+        propertyDescriptor.value = this.wrapper(propertyDescriptor.value);
         return propertyDescriptor;
     }
 
-    public wrapper(handler: any, method: any): any {
-        return async (event: any, context: Context): Promise<any> => {
+    public wrapper(method: any): any {
+        // tslint:disable-next-line:no-this-assignment
+        const handler = this;
+        return async function fn(event: any, context: Context): Promise<any> {
             try {
-                return this.after(await method.apply(handler, this.before(event, context)));
+                // @ts-ignore
+                return handler.after(await method.apply(this, handler.before(event, context)));
             } catch (err) {
-                return this.onException(err);
+                return handler.onException(err);
             }
         };
     }
