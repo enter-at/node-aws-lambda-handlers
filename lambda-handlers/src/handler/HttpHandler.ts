@@ -42,21 +42,22 @@ export class HttpLambdaHandler extends LambdaHandler {
     }
 
     protected formatInput(event: any): any {
-        if ('body' in event) {
-            try {
-                event.body = super.formatInput(event.body);
-            } catch (err) {
-                if (err instanceof FormatError) {
-                    throw new FormatError([{body: [err.description]}]);
-                }
-                throw err;
-            }
+        if (!event?.body) {
+            return event;
         }
-        return event;
+        try {
+            event.body = super.formatInput(event.body);
+            return event;
+        } catch (err) {
+            if (err instanceof FormatError) {
+                throw new FormatError([{body: [err.description]}]);
+            }
+            throw err;
+        }
     }
 
     protected formatOutput(result: APIGatewayProxyResult): APIGatewayProxyResult {
-        if ('body' in result) {
+        if (result?.body) {
             result.body = super.formatOutput(result.body);
         }
         return result;

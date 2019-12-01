@@ -1,6 +1,6 @@
 {
     "name": "@enter-at/lambda-handlers",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation, error handling and response formatting.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -36,11 +36,11 @@
     },
     "homepage": "https://github.com/enter-at/aws-node#readme",
     "dependencies": {
-        "aws-lambda": "^0.1.2",
-        "aws-sdk": "^2.580.0",
         "http-status-codes": "^1.4.0"
     },
     "devDependencies": {
+        "aws-lambda": "^0.1.2",
+        "aws-sdk": "^2.580.0",
         "@types/aws-lambda": "^8.10.36",
         "@types/aws-sdk": "^2.7.0",
         "@types/faker": "^4.1.8",
