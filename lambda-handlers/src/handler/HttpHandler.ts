@@ -1,16 +1,16 @@
-import {APIGatewayProxyResult} from 'aws-lambda';
+import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import {BadRequestError, FormatError, NotFoundError, ValidationError} from '../error';
 import {ContentType, CORS, IHeaders} from '../header';
 import {badRequest, internalServerError, noContent, notFound, ok} from '../response';
 import {ILambdaHandlerArguments, LambdaHandler} from './LambdaHandler';
 
 export interface IHttpLambdaHandlerArguments extends ILambdaHandlerArguments {
-    cors?: any;
+    cors?: CORS;
 }
 
 export class HttpLambdaHandler extends LambdaHandler {
 
-    private static handleError(err: any): APIGatewayProxyResult {
+    private static handleError(err: Error): APIGatewayProxyResult {
         if (err instanceof NotFoundError) {
             return notFound(err.description);
         }
@@ -20,7 +20,7 @@ export class HttpLambdaHandler extends LambdaHandler {
         return internalServerError();
     }
 
-    private cors: any;
+    private cors: CORS;
 
     constructor(args?: IHttpLambdaHandlerArguments) {
         super(args);
@@ -41,7 +41,7 @@ export class HttpLambdaHandler extends LambdaHandler {
         return this.createResponse(HttpLambdaHandler.handleError(exception));
     }
 
-    protected formatInput(event: any): any {
+    protected formatInput(event: APIGatewayProxyEvent): APIGatewayProxyEvent {
         if (!event?.body) {
             return event;
         }
