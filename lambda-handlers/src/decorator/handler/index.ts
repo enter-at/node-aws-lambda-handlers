@@ -1,6 +1,6 @@
-import {HttpLambdaHandler, IHttpLambdaHandlerArguments} from '../../handler';
+import * as handlers from '../../handler';
 
-export function HttpHandler(args?: IHttpLambdaHandlerArguments) {
-    const handler = new HttpLambdaHandler(args);
+export function APIGatewayProxyHandler(args?: handlers.IAPIGatewayProxyHandlerArguments) {
+    const handler = new handlers.APIGatewayProxyHandler(args);
     return handler.decorator.bind(handler);
 }

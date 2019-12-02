@@ -38,7 +38,7 @@ import {IFormat} from '../format/IFormat';
 import * as inputFormat from '../format/InputFormat';
 import * as outputFormat from '../format/OutputFormat';
 
-export interface ILambdaHandlerArguments {
+export interface IBaseHandlerArguments {
     inputFormat?: IFormat;
     outputFormat?: IFormat;
 }
@@ -80,12 +80,12 @@ type Handler =
     | SQSHandler
     | ScheduledHandler;
 
-export abstract class LambdaHandler {
+export abstract class BaseHandler {
 
     protected inputFormat: IFormat;
     protected outputFormat: IFormat;
 
-    constructor(args?: ILambdaHandlerArguments) {
+    constructor(args?: IBaseHandlerArguments) {
         this.inputFormat = args?.inputFormat ?? inputFormat.json;
         this.outputFormat = args?.outputFormat ?? outputFormat.json;
     }

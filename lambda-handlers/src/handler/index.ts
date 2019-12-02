@@ -1,2 +1,2 @@
-export * from './LambdaHandler';
-export * from './HttpHandler';
+export * from './BaseHandler';
+export * from './APIGatewayProxyHandler';
