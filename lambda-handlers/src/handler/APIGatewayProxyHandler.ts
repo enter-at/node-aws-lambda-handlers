@@ -1,11 +1,11 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import {BadRequestError, FormatError, NotFoundError, ValidationError} from '../error';
-import {ContentType, CORS, IHeaders} from '../header';
+import {ContentTypeHeader, CORSHeader, IHeader, IHeaders} from '../header';
 import {badRequest, internalServerError, noContent, notFound, ok} from '../response';
 import {BaseHandler, IBaseHandlerArguments} from './BaseHandler';
 
 export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments {
-    cors?: CORS;
+    cors?: CORSHeader;
 }
 
 export class APIGatewayProxyHandler extends BaseHandler {
@@ -20,11 +20,11 @@ export class APIGatewayProxyHandler extends BaseHandler {
         return internalServerError();
     }
 
-    private cors: CORS;
+    private corsHeader: IHeader;
 
     constructor(args?: IAPIGatewayProxyHandlerArguments) {
         super(args);
-        this.cors = args?.cors ?? new CORS('*', true);
+        this.corsHeader = args?.cors ?? new CORSHeader('*', true);
     }
 
     protected after(result: any): APIGatewayProxyResult {
@@ -73,8 +73,8 @@ export class APIGatewayProxyHandler extends BaseHandler {
     private createHeaders(headers: IHeaders | undefined): IHeaders {
         return {
             ...headers,
-            ...(this.cors && this.cors.createHeaders()),
-            ...(this.outputFormat && new ContentType(this.outputFormat).createHeaders())
+            ...(this.corsHeader && this.corsHeader.create()),
+            ...(this.outputFormat && new ContentTypeHeader(this.outputFormat.contentType).create())
         };
     }
 }

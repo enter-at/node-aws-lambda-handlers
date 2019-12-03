@@ -1,11 +1,11 @@
-import {IHeaders} from './IHeaders';
+import {IHeader, IHeaders} from './IHeader';
 
-export class CORS {
+export class CORSHeader implements IHeader {
 
     constructor(private origin: string = '*', private credentials: boolean = false) {
     }
 
-    public createHeaders(): IHeaders {
+    public create(): IHeaders {
         return {
             'Access-Control-Allow-Origin': this.origin,
             ...(this.credentials && {'Access-Control-Allow-Credentials': true})

@@ -120,11 +120,11 @@ export abstract class BaseHandler {
         throw exception;
     }
 
-    protected formatOutput(result: any): any {
-        return this.outputFormat.apply(result);
-    }
-
     protected formatInput(event: any): any {
         return this.inputFormat.apply(event);
+    }
+
+    protected formatOutput(result: any): any {
+        return this.outputFormat.apply(result);
     }
 }

@@ -1,3 +1,3 @@
-export * from './CORS';
-export * from './ContentType';
-export * from './IHeaders';
+export * from './CORSHeader';
+export * from './ContentTypeHeader';
+export * from './IHeader';

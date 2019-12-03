@@ -1,3 +1,3 @@
-import {CORS} from '../../header';
+import {CORSHeader} from '../../header';
 
-export const cors = (origin?: string, credential?: boolean) => new CORS(origin, credential);
+export const cors = (origin?: string, credential?: boolean) => new CORSHeader(origin, credential);
