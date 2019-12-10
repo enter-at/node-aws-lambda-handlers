@@ -1,5 +1,5 @@
 export abstract class LambdaHandlerError extends Error {
-    public constructor(public description?: any) {
-        super(description);
+    public constructor(public details?: any) {
+        super(details);
     }
 }

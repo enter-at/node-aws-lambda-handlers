@@ -10,6 +10,5 @@ export const format = {
     input, output
 };
 
-export * from './handler';
 export * from './header';
 export * from './response';

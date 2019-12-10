@@ -1,7 +1,7 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
 import {BadRequestError, FormatError, NotFoundError, ValidationError} from '../error';
 import {ContentTypeHeader, CORSHeader, IHeader, IHeaders} from '../header';
-import {badRequest, internalServerError, noContent, notFound, ok} from '../response';
+import {badRequest, IAPIGatewayResponse, internalServerError, noContent, notFound, ok} from '../response';
 import {BaseHandler, IBaseHandlerArguments} from './BaseHandler';
 
 export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments {
@@ -10,12 +10,12 @@ export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments 
 
 export class APIGatewayProxyHandler extends BaseHandler {
 
-    private static handleError(err: Error): APIGatewayProxyResult {
+    private static handleError(err: Error): IAPIGatewayResponse {
         if (err instanceof NotFoundError) {
-            return notFound(err.description);
+            return notFound(err.details);
         }
         if (err instanceof BadRequestError || err instanceof FormatError || err instanceof ValidationError) {
-            return badRequest(err.description);
+            return badRequest(err.details);
         }
         return internalServerError();
     }
@@ -50,13 +50,13 @@ export class APIGatewayProxyHandler extends BaseHandler {
             return event;
         } catch (err) {
             if (err instanceof FormatError) {
-                throw new FormatError([{body: [err.description]}]);
+                throw new FormatError([{body: [err.details]}]);
             }
             throw err;
         }
     }
 
-    protected formatOutput(result: APIGatewayProxyResult): APIGatewayProxyResult {
+    protected formatOutput(result: IAPIGatewayResponse): APIGatewayProxyResult {
         if (result?.body) {
             result.body = super.formatOutput(result.body);
         } else {
@@ -65,7 +65,7 @@ export class APIGatewayProxyHandler extends BaseHandler {
         return result;
     }
 
-    private createResponse(result: APIGatewayProxyResult): APIGatewayProxyResult {
+    private createResponse(result: IAPIGatewayResponse): APIGatewayProxyResult {
         result.headers = this.createHeaders(result.headers);
         return this.formatOutput(result);
     }
