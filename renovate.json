@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "pipenv": {
-    "enabled": true
-  }
+    "extends": [
+        "config:base"
+    ]
 }
