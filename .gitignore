@@ -64,3 +64,7 @@ dist
 .idea
 .terraform
 *.tfstate
+
+.build-harness
+build-harness
+.README.md.gotmpl
