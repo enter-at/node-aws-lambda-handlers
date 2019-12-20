@@ -37,7 +37,7 @@ badges:
     - name: "Build Status"
       image: "https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg"
       url: "https://github.com/enter-at/node-aws-lambda-handlers/actions"
-    - name: "Downloads"
+    - name: "Release"
       image: "https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg"
       url: "https://www.npmjs.com/package/@enter-at/lambda-handlers"
     - name: "Install size"
@@ -49,46 +49,16 @@ description: |-
     An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation,
     error handling and response formatting.
 
-# How to use this project
-usage: |-
-    ### Example
-
-    ```typescript
-    import {APIGatewayProxyHandler, BadRequestError, notFound, ok} from '@enter-at/lambda-handlers';
-    import {object, string} from '@hapi/joi';
-    import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
-
-    const validationSchema = object({
-        email: string().email().required()
-    });
-
-    export class GetAccountDataAdapter {
-
-        contructor(private service: IService) {}
-
-        @APIGatewayProxyHandler()
-        public async handle(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
-            try {
-                const payload = await this.readPayload(event.queryStringParameters);
-                return ok(await this.service.fetch(payload));
-            } catch (err) {
-                if (err instanceof ResourceNotFoundError) {
-                    return notFound(err.message);
-                }
-                throw err;
-            }
-        }
-
-        private async validatePayload<T>(parameters: any): Promise<T> {
-            try {
-                return await validationSchema.validateAsync(parameters, {abortEarly: false});
-            } catch (err) {
-                throw new BadRequestError(err.details.map((detail: any) => detail.message));
-            }
-        }
-    }
-
+quickstart: |-
+    Install from NPM:
+    ```bash
+    npm install @enter-at/lambda-handlers
     ```
+
+include:
+    - "docs/api.md"
+    - "docs/status-code.md"
+    - "docs/errors.md"
 
 # Contributors to this project
 contributors:
