@@ -12,7 +12,7 @@
 
 [<img src="https://res.cloudinary.com/enter-at/image/upload/v1576145406/static/logo-svg.svg" alt="enter-at" width="100">][website]
 
-# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Downloads](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers)](https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers)
+# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers)](https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers)
 
 
 An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation,
@@ -28,53 +28,138 @@ It's 100% Open Source and licensed under the [APACHE2](LICENSE).
 
 
 
-## Usage
 
+## Quick Start
 
-
-### Example
-
-```typescript
-import {APIGatewayProxyHandler, BadRequestError, notFound, ok} from '@enter-at/lambda-handlers';
-import {object, string} from '@hapi/joi';
-import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
-
-const validationSchema = object({
-    email: string().email().required()
-});
-
-export class GetAccountDataAdapter {
-
-    contructor(private service: IService) {}
-
-    @APIGatewayProxyHandler()
-    public async handle(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
-        try {
-            const payload = await this.readPayload(event.queryStringParameters);
-            return ok(await this.service.fetch(payload));
-        } catch (err) {
-            if (err instanceof ResourceNotFoundError) {
-                return notFound(err.message);
-            }
-            throw err;
-        }
-    }
-
-    private async validatePayload<T>(parameters: any): Promise<T> {
-        try {
-            return await validationSchema.validateAsync(parameters, {abortEarly: false});
-        } catch (err) {
-            throw new BadRequestError(err.details.map((detail: any) => detail.message));
-        }
-    }
-}
-
+Install from NPM:
+```bash
+npm install @enter-at/lambda-handlers
 ```
 
 
 
 
 
+
+## Api
+### Status code
+
+```typescript
+import {APIGatewayProxyHandler} from '@enter-at/lambda-handlers';
+
+@APIGatewayProxyHandler()
+export function handler(event, context) {
+    return {
+        message: `Hello ${event.queryStringParameters.name}!`
+    };
+}
+```
+
+Let's invoke the function:
+
+```bash
+payload='{"queryStringParameters": {"name": "Peter"}}'
+aws lambda invoke --function-name hello-world --payload $payload /tmp/response.json
+```
+
+Responds with:
+
+```json
+{
+    "headers":{
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json"
+    },
+    "statusCode": 200,
+    "body": "\"Hello Peter!\""
+}
+```
+
+Default headers and status code have been added.
+
+#### Respond with a specific status code
+
+```typescript
+import {APIGatewayProxyHandler, created} from '@enter-at/lambda-handlers';
+
+@APIGatewayProxyHandler()
+export function handler(event, context) {
+    const resource = {id: 1, name: event.body.name};
+    return created(resource);
+}
+```
+
+```bash
+payload='{"body": "{\"name\": \"Peter\"}"}'
+aws lambda invoke --function-name create-resource --payload $payload /tmp/response.json
+```
+
+Responds with:
+
+```json
+{
+    "headers":{
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json"
+    },
+    "statusCode": 201,
+    "body": "{\"id\":1,\"name\":\"Peter\"}"
+}
+```
+
+#### Error handling
+
+```typescript
+import {APIGatewayProxyHandler, BadRequestError} from '@enter-at/lambda-handlers';
+
+@APIGatewayProxyHandler()
+export function handler(event, context) {
+    throw new BadRequestError('missing email');
+}
+```
+
+```bash
+aws lambda invoke --function-name create-resource $payload /tmp/response.json
+```
+
+Responds with:
+
+```json
+{
+    "headers":{
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Content-Type": "application/json"
+    },
+    "statusCode": 400,
+    "body": "{\"errors\":[{\"name\": \"BadRequestError\", \"details\": [\"missing email\"]}]}"
+}
+```
+### Errors
+
+```
+LambdaHandlerError
+```
+```
+BadRequestError
+```
+```
+ForbiddenError
+```
+```
+InternalServerError
+```
+```
+NotFoundError
+```
+```
+FormatError
+```
+```
+ValidationError
+```
 
 
 
