@@ -169,7 +169,8 @@ Responds with:
     "statusCode": 201,
     "body": "\"Hello World!\""
 }
-```### Errors
+```
+### Errors
 
 ```
 LambdaHandlerError
