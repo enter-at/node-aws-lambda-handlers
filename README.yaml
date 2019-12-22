@@ -58,6 +58,7 @@ quickstart: |-
 include:
     - "docs/api.md"
     - "docs/status-code.md"
+    - "docs/headers.md"
     - "docs/errors.md"
 
 # Contributors to this project
