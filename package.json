@@ -45,7 +45,7 @@
         "@types/http-status-codes": "1.2.0",
         "@types/jest": "24.9.0",
         "aws-lambda": "1.0.4",
-        "aws-sdk": "2.606.0",
+        "aws-sdk": "2.608.0",
         "faker": "4.1.0",
         "husky": "4.0.10",
         "jest": "24.9.0",
