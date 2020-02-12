@@ -47,7 +47,7 @@
         "aws-lambda": "1.0.4",
         "aws-sdk": "2.616.0",
         "faker": "4.1.0",
-        "husky": "4.2.1",
+        "husky": "4.2.2",
         "jest": "25.1.0",
         "jest-dot-reporter": "1.0.14",
         "jest-junit": "10.0.0",
