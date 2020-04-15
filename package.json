@@ -39,7 +39,7 @@
         "http-status-codes": "^1.4.0"
     },
     "devDependencies": {
-        "@types/aws-lambda": "8.10.48",
+        "@types/aws-lambda": "8.10.49",
         "@types/aws-sdk": "2.7.0",
         "@types/faker": "4.1.11",
         "@types/http-status-codes": "1.2.0",
