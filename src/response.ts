@@ -16,6 +16,11 @@ export function forbidden(details: string | undefined): IAPIGatewayResponse {
     return buildResult<ForbiddenError>(error, httpStatusCode.FORBIDDEN);
 }
 
+export function unauthorized(details: string | undefined): IAPIGatewayResponse {
+    const error: ForbiddenError = new ForbiddenError(details);
+    return buildResult<ForbiddenError>(error, httpStatusCode.UNAUTHORIZED);
+}
+
 export function internalServerError(): IAPIGatewayResponse {
     const error: InternalServerError = new InternalServerError('InternalServerError');
     return buildResult<InternalServerError>(error, httpStatusCode.INTERNAL_SERVER_ERROR);
