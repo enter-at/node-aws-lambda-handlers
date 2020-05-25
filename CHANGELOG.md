@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/enter-at/aws-node/compare/v1.1.0...v1.1.1) (2020-05-25)
+
+
+### Bug Fixes
+
+* define compile target version ([fe82cc5](https://github.com/enter-at/aws-node/commit/fe82cc52cb72744b4fc815e4a3b6163a7880b421))
+
 # [1.1.0](https://github.com/enter-at/aws-node/compare/v1.0.0...v1.1.0) (2020-05-25)
 
 
