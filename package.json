@@ -1,6 +1,6 @@
 {
     "name": "@enter-at/lambda-handlers",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation, error handling and response formatting.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

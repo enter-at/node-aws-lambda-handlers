@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/enter-at/aws-node/compare/v1.0.0...v1.1.0) (2020-05-25)
+
+
+### Features
+
+* **response:** add unauthorized ([7cb9171](https://github.com/enter-at/aws-node/commit/7cb91716dbb514142b407d999141695a61b9ceae))
+
 # 1.0.0 (2019-12-18)
 
 
