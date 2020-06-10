@@ -22,7 +22,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/enter-at/aws-node.git"
+        "url": "git+ssh://git@github.com/enter-at/node-aws-lambda-handlers.git"
     },
     "keywords": [
         "AWS",
@@ -32,9 +32,9 @@
     "author": "Steffen Leistner",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/enter-at/aws-node/issues"
+        "url": "https://github.com/enter-at/node-aws-lambda-handlers/issues"
     },
-    "homepage": "https://github.com/enter-at/aws-node#readme",
+    "homepage": "https://github.com/enter-at/node-aws-lambda-handlers#readme",
     "dependencies": {
         "http-status-codes": "^1.4.0"
     },
