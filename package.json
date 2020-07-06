@@ -43,7 +43,7 @@
         "@types/aws-sdk": "2.7.0",
         "@types/faker": "4.1.12",
         "@types/http-status-codes": "1.2.0",
-        "@types/jest": "24.9.1",
+        "@types/jest": "26.0.4",
         "aws-lambda": "1.0.6",
         "aws-sdk": "2.710.0",
         "faker": "4.1.0",
