@@ -5,3 +5,4 @@ export {InternalServerError} from './InternalServerError';
 export {NotFoundError} from './NotFoundError';
 export {FormatError} from './FormatError';
 export {ValidationError} from './ValidationError';
+export {RequestTimeoutError} from './RequestTimeoutError';

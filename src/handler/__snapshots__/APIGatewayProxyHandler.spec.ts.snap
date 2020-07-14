@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`APIGatewayProxyHandler handles BadRequestError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"BadRequestError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles ForbiddenError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"ForbiddenError\\",\\"details\\":\\"ForbiddenError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 403,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles FormatError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"FormatError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 400,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles InternalServerError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"InternalServerError\\",\\"details\\":\\"InternalServerError\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 500,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles NotFoundError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"NotFoundError\\",\\"details\\":\\"NotFoundError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 404,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles RequestTimeoutError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"RequestTimeoutError\\",\\"details\\":\\"RequestTimeoutError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 408,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles ValidationError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"ValidationError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 400,
+}
+`;
