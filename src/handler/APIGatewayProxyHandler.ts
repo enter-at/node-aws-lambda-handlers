@@ -1,15 +1,23 @@
-import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
-import {BadRequestError, FormatError, NotFoundError, ValidationError, RequestTimeoutError} from '../error';
-import {ContentTypeHeader, CORSHeader, IHeader, IHeaders} from '../header';
-import {badRequest, IAPIGatewayResponse, internalServerError, noContent, notFound, ok, requestTimeout} from '../response';
-import {BaseHandler, IBaseHandlerArguments} from './BaseHandler';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { BadRequestError, FormatError, NotFoundError, ValidationError, RequestTimeoutError, ForbiddenError } from "../error";
+import { ContentTypeHeader, CORSHeader, IHeader, IHeaders } from "../header";
+import {
+    badRequest,
+    IAPIGatewayResponse,
+    internalServerError,
+    noContent,
+    notFound,
+    ok,
+    requestTimeout,
+    forbidden,
+} from "../response";
+import { BaseHandler, IBaseHandlerArguments } from "./BaseHandler";
 
 export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments {
     cors?: CORSHeader;
 }
 
 export class APIGatewayProxyHandler extends BaseHandler {
-
     private static handleError(err: Error): IAPIGatewayResponse {
         if (err instanceof NotFoundError) {
             return notFound(err.details);
@@ -18,7 +26,10 @@ export class APIGatewayProxyHandler extends BaseHandler {
             return badRequest(err.details);
         }
         if (err instanceof RequestTimeoutError) {
-            return requestTimeout(err.details)
+            return requestTimeout(err.details);
+        }
+        if (err instanceof ForbiddenError) {
+            return forbidden(err.details);
         }
         return internalServerError();
     }
@@ -27,7 +38,7 @@ export class APIGatewayProxyHandler extends BaseHandler {
 
     constructor(args?: IAPIGatewayProxyHandlerArguments) {
         super(args);
-        this.corsHeader = args?.cors ?? new CORSHeader('*', true);
+        this.corsHeader = args?.cors ?? new CORSHeader("*", true);
     }
 
     protected after(result: any): APIGatewayProxyResult {
@@ -53,7 +64,7 @@ export class APIGatewayProxyHandler extends BaseHandler {
             return event;
         } catch (err) {
             if (err instanceof FormatError) {
-                throw new FormatError([{body: [err.details]}]);
+                throw new FormatError([{ body: [err.details] }]);
             }
             throw err;
         }
@@ -77,7 +88,7 @@ export class APIGatewayProxyHandler extends BaseHandler {
         return {
             ...headers,
             ...(this.corsHeader && this.corsHeader.create()),
-            ...(this.outputFormat && new ContentTypeHeader(this.outputFormat.contentType).create())
+            ...(this.outputFormat && new ContentTypeHeader(this.outputFormat.contentType).create()),
         };
     }
 }
