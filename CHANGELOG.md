@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v1.1.1...v1.2.0) (2020-07-14)
+
+
+### Bug Fixes
+
+* **APIGatewayProxyHandler:** fix linter issues ([e581bdb](https://github.com/enter-at/node-aws-lambda-handlers/commit/e581bdbec70d4d48e5c67b6240d79d2017192fb9))
+
+
+### Features
+
+* **tests:** add tests for error responses ([e506a2f](https://github.com/enter-at/node-aws-lambda-handlers/commit/e506a2ffd712cacb2e3c6c2cd8674a7815909702))
+
 ## [1.1.1](https://github.com/enter-at/aws-node/compare/v1.1.0...v1.1.1) (2020-05-25)
 
 
