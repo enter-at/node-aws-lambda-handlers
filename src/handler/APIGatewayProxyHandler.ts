@@ -1,7 +1,7 @@
 import {APIGatewayProxyEvent, APIGatewayProxyResult} from 'aws-lambda';
-import {BadRequestError, FormatError, NotFoundError, ValidationError} from '../error';
+import {BadRequestError, FormatError, NotFoundError, ValidationError, RequestTimeoutError} from '../error';
 import {ContentTypeHeader, CORSHeader, IHeader, IHeaders} from '../header';
-import {badRequest, IAPIGatewayResponse, internalServerError, noContent, notFound, ok} from '../response';
+import {badRequest, IAPIGatewayResponse, internalServerError, noContent, notFound, ok, requestTimeout} from '../response';
 import {BaseHandler, IBaseHandlerArguments} from './BaseHandler';
 
 export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments {
@@ -16,6 +16,9 @@ export class APIGatewayProxyHandler extends BaseHandler {
         }
         if (err instanceof BadRequestError || err instanceof FormatError || err instanceof ValidationError) {
             return badRequest(err.details);
+        }
+        if (err instanceof RequestTimeoutError) {
+            return requestTimeout(err.details)
         }
         return internalServerError();
     }

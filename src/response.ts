@@ -1,6 +1,6 @@
 import {APIGatewayProxyResult} from 'aws-lambda';
 import * as httpStatusCode from 'http-status-codes';
-import {BadRequestError, ForbiddenError, InternalServerError, LambdaHandlerError, NotFoundError} from './error';
+import {BadRequestError, ForbiddenError, InternalServerError, LambdaHandlerError, NotFoundError, RequestTimeoutError} from './error';
 
 export interface IAPIGatewayResponse extends APIGatewayProxyResult {
     body: any | undefined;
@@ -29,6 +29,11 @@ export function internalServerError(): IAPIGatewayResponse {
 export function notFound(details: string | undefined): IAPIGatewayResponse {
     const error: NotFoundError = new NotFoundError(details);
     return buildResult<NotFoundError>(error, httpStatusCode.NOT_FOUND);
+}
+
+export function requestTimeout(details: string | undefined): IAPIGatewayResponse {
+    const error: RequestTimeoutError = new RequestTimeoutError(details);
+    return buildResult<RequestTimeoutError>(error, httpStatusCode.REQUEST_TIMEOUT);
 }
 
 export function ok<T>(result: T): IAPIGatewayResponse {
