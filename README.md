@@ -12,7 +12,7 @@
 
 [<img src="https://res.cloudinary.com/enter-at/image/upload/v1576145406/static/logo-svg.svg" alt="enter-at" width="100">][website]
 
-# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers)](https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers)
+# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/node-aws-lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/node-aws-lambda-handlers) [![Install size](https://packagephobia.now.sh/badge?p=@enter-at/node-aws-lambda-handlers)](https://packagephobia.now.sh/result?p=@enter-at/node-aws-lambda-handlers)
 
 
 An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation,
