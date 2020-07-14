@@ -52,7 +52,7 @@
         "jest-dot-reporter": "1.0.14",
         "jest-junit": "11.0.1",
         "rimraf": "3.0.2",
-        "ts-jest": "24.3.0",
+        "ts-jest": "26.1.2",
         "tslint": "6.1.2",
         "typescript": "3.9.6"
     },
