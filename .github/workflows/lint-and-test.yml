@@ -1,6 +1,12 @@
 name: Lint & Test
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   lint:
@@ -18,7 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["10.x", "12.x"]
+        node:
+         - 10.x
+         - 12.x
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -26,3 +34,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm install
       - run: npm test
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Test Reports
+          path: ${{ github.workspace }}/test-reports/**/*
