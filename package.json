@@ -30,6 +30,9 @@
         "Typescript"
     ],
     "author": "Steffen Leistner",
+    "contributors": [
+        "Martin Pirkl <martin.pirkl@gmail.com>"
+    ],
     "license": "Apache-2.0",
     "bugs": {
         "url": "https://github.com/enter-at/node-aws-lambda-handlers/issues"

@@ -36,6 +36,41 @@ Object {
 }
 `;
 
+exports[`APIGatewayProxyHandler handles HTTP 200 response correctly 1`] = `
+Object {
+  "body": "{\\"result\\":\\"HTTP 200\\"}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 200,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles HTTP 201 response correctly 1`] = `
+Object {
+  "body": "{\\"result\\":\\"HTTP 201\\"}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 201,
+}
+`;
+
+exports[`APIGatewayProxyHandler handles HTTP 204 response correctly 1`] = `
+Object {
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 204,
+}
+`;
+
 exports[`APIGatewayProxyHandler handles InternalServerError response correctly 1`] = `
 Object {
   "body": "{\\"errors\\":[{\\"name\\":\\"InternalServerError\\",\\"details\\":\\"InternalServerError\\"}]}",
