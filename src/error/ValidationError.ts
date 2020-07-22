@@ -1,5 +1,5 @@
-import {LambdaHandlerError} from './LambdaHandlerError';
+import { LambdaHandlerError } from "./LambdaHandlerError";
 
 export class ValidationError extends LambdaHandlerError {
-    public readonly name = 'ValidationError';
+    public readonly name = "ValidationError";
 }

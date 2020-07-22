@@ -1,2 +1,2 @@
-export * from './BaseHandler';
-export * from './APIGatewayProxyHandler';
+export * from "./BaseHandler";
+export * from "./APIGatewayProxyHandler";

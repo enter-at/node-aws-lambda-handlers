@@ -1,18 +1,22 @@
-import {IFormat} from '../../format/IFormat';
+import { Format } from "../../format/Format";
 
-class Format implements IFormat {
-    constructor(readonly contentType: string, private formatter: any) {
+class FormatDecorator<T> implements Format {
+    constructor(readonly contentType: string, private formatter: (content: unknown) => unknown) {}
+
+    public apply<T>(content: unknown): T {
+        return this.formatter(content) as T;
     }
-
-    public apply(content: any): any {
-        return this.formatter(content);
-    }
-
 }
 
-export function format(contentType: string) {
-    function wrapper(target: object, propertyName: string, propertyDescriptor: PropertyDescriptor): PropertyDescriptor {
-        propertyDescriptor.value = new Format(contentType, propertyDescriptor.value);
+export function format(
+    contentType: string
+): (_target: unknown, _propertyName: string, propertyDescriptor: PropertyDescriptor) => PropertyDescriptor {
+    function wrapper(
+        _target: unknown,
+        _propertyName: string,
+        propertyDescriptor: PropertyDescriptor
+    ): PropertyDescriptor {
+        propertyDescriptor.value = new FormatDecorator(contentType, propertyDescriptor.value);
         return propertyDescriptor;
     }
 

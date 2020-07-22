@@ -1,14 +1,15 @@
-export * from './decorator/format';
-export * from './decorator/handler';
-export * from './decorator/header';
-export * from './error';
+export * from "./decorator/format";
+export * from "./decorator/handler";
+export * from "./decorator/header";
+export * from "./error";
 
-import * as input from './format/InputFormat';
-import * as output from './format/OutputFormat';
+import * as input from "./format/InputFormat";
+import * as output from "./format/OutputFormat";
 
 export const format = {
-    input, output
+    input,
+    output,
 };
 
-export * from './header';
-export * from './response';
+export * from "./header";
+export * from "./response";

@@ -1,5 +1,5 @@
-import {LambdaHandlerError} from './LambdaHandlerError';
+import { LambdaHandlerError } from "./LambdaHandlerError";
 
 export class RequestTimeoutError extends LambdaHandlerError {
-    public readonly name = 'RequestTimeoutError';
+    public readonly name = "RequestTimeoutError";
 }

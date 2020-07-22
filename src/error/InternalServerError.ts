@@ -1,5 +1,5 @@
-import {LambdaHandlerError} from './LambdaHandlerError';
+import { LambdaHandlerError } from "./LambdaHandlerError";
 
 export class InternalServerError extends LambdaHandlerError {
-    public readonly name = 'InternalServerError';
+    public readonly name = "InternalServerError";
 }

@@ -8,13 +8,13 @@
         "dist/**/*"
     ],
     "scripts": {
-        "lint": "tslint -p tsconfig.json",
+        "lint": "eslint './src/**/*.ts'",
         "test": "NODE_ENV=testing jest -b --reporters jest-dot-reporter",
         "test:verbose": "npm run test -- --reporters default",
         "test:coverage": "npm run test -- --coverage",
         "test:ci": "npm run test:coverage:verbose -- --ci --reporters=jest-junit",
-        "build": "npm run clean && npm run compile",
-        "compile": "tsc",
+        "build": "npm run clean && npm run build:compile",
+        "build:compile": "tsc -p tsconfig.build.json",
         "clean": "rimraf ./dist",
         "prepare": "npm run build",
         "preversion": "npm run lint",
@@ -35,26 +35,25 @@
         "url": "https://github.com/enter-at/node-aws-lambda-handlers/issues"
     },
     "homepage": "https://github.com/enter-at/node-aws-lambda-handlers#readme",
-    "dependencies": {
-        "http-status-codes": "^1.4.0"
-    },
+    "dependencies": {},
     "devDependencies": {
+        "@enter-at/eslint-config-typescript-prettier": "^1.1.0",
         "@types/aws-lambda": "8.10.59",
         "@types/aws-sdk": "2.7.0",
         "@types/faker": "4.1.12",
-        "@types/http-status-codes": "1.2.0",
         "@types/jest": "26.0.5",
         "aws-lambda": "1.0.6",
         "aws-sdk": "2.717.0",
+        "eslint": "^7.5.0",
         "faker": "4.1.0",
         "husky": "4.2.5",
         "jest": "26.1.0",
         "jest-dot-reporter": "1.0.14",
         "jest-junit": "11.0.1",
+        "prettier": "^2.0.5",
         "rimraf": "3.0.2",
         "ts-jest": "26.1.3",
-        "tslint": "6.1.2",
-        "typescript": "3.9.7"
+        "typescript": "^3.9.7"
     },
     "jest": {
         "verbose": true,

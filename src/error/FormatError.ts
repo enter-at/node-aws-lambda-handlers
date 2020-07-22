@@ -1,5 +1,5 @@
-import {LambdaHandlerError} from './LambdaHandlerError';
+import { LambdaHandlerError } from "./LambdaHandlerError";
 
 export class FormatError extends LambdaHandlerError {
-    public readonly name = 'FormatError';
+    public readonly name = "FormatError";
 }
