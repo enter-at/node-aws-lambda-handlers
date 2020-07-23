@@ -1,12 +1,11 @@
-import {IHeader, IHeaders} from './IHeader';
+import { Header, Headers } from "./Header";
 
-export class ContentTypeHeader implements IHeader {
-    constructor(private contentType: string) {
-    }
+export class ContentTypeHeader implements Header {
+    constructor(private contentType: string) {}
 
-    public create(): IHeaders {
+    public create(): Headers {
         return {
-            'Content-Type': this.contentType
+            "Content-Type": this.contentType,
         };
     }
 }

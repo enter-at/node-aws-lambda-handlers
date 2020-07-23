@@ -1,26 +1,38 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { BadRequestError, FormatError, NotFoundError, ValidationError, RequestTimeoutError, ForbiddenError } from '../error';
-import { ContentTypeHeader, CORSHeader, IHeader, IHeaders } from '../header';
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import {
+    BadRequestError,
+    ForbiddenError,
+    FormatError,
+    NotFoundError,
+    RequestTimeoutError,
+    ValidationError,
+    UnauthorizedError,
+} from "../error";
+import { ContentTypeHeader, CORSHeader, Header, Headers } from "../header";
 import {
     badRequest,
-    IAPIGatewayResponse,
+    forbidden,
+    APIGatewayResponse,
     internalServerError,
     noContent,
     notFound,
     ok,
     requestTimeout,
-    forbidden,
-} from '../response';
-import { BaseHandler, IBaseHandlerArguments } from './BaseHandler';
+    unauthorized,
+} from "../response";
+import { BaseHandler, BaseHandlerArguments } from "./BaseHandler";
 
-export interface IAPIGatewayProxyHandlerArguments extends IBaseHandlerArguments {
+export interface APIGatewayProxyHandlerArguments extends BaseHandlerArguments {
     cors?: CORSHeader;
 }
 
 export class APIGatewayProxyHandler extends BaseHandler {
-    private static handleError(err: Error): IAPIGatewayResponse {
-        if (err instanceof NotFoundError) {
-            return notFound(err.details);
+    private static handleError(err: Error): APIGatewayResponse {
+        if (err instanceof ForbiddenError) {
+            return forbidden(err.details);
+        }
+        if (err instanceof UnauthorizedError) {
+            return unauthorized(err.details);
         }
         if (err instanceof BadRequestError || err instanceof FormatError || err instanceof ValidationError) {
             return badRequest(err.details);
@@ -28,67 +40,61 @@ export class APIGatewayProxyHandler extends BaseHandler {
         if (err instanceof RequestTimeoutError) {
             return requestTimeout(err.details);
         }
-        if (err instanceof ForbiddenError) {
-            return forbidden(err.details);
+        if (err instanceof NotFoundError) {
+            return notFound(err.details);
         }
         return internalServerError();
     }
 
-    private corsHeader: IHeader;
+    private corsHeader: Header;
 
-    constructor(args?: IAPIGatewayProxyHandlerArguments) {
+    constructor(args?: APIGatewayProxyHandlerArguments) {
         super(args);
-        this.corsHeader = args?.cors ?? new CORSHeader('*', true);
+        this.corsHeader = args?.cors ?? new CORSHeader("*", true);
     }
 
-    protected after(result: any): APIGatewayProxyResult {
-        if (result === undefined || result === null) {
-            result = noContent();
-        }
+    protected after(result: APIGatewayResponse): APIGatewayProxyResult {
+        result = result ?? noContent();
         if (result.statusCode === undefined) {
             result = ok(result);
         }
         return this.createResponse(result);
     }
 
-    protected onException(exception: any): APIGatewayProxyResult {
+    protected onException(exception: Error): APIGatewayProxyResult {
         return this.createResponse(APIGatewayProxyHandler.handleError(exception));
     }
 
     protected formatInput(event: APIGatewayProxyEvent): APIGatewayProxyEvent {
-        if (!event?.body) {
+        if (!event.body) {
             return event;
         }
         try {
-            event.body = super.formatInput(event.body);
+            event.body = this.inputFormat.apply(event.body);
             return event;
         } catch (err) {
-            if (err instanceof FormatError) {
-                throw new FormatError([{ body: [err.details] }]);
-            }
             throw err;
         }
     }
 
-    protected formatOutput(result: IAPIGatewayResponse): APIGatewayProxyResult {
-        if (result?.body) {
-            result.body = super.formatOutput(result.body);
-        } else {
-            delete result.body;
-        }
-        return result;
+    protected formatOutput(result: APIGatewayResponse): APIGatewayProxyResult {
+        const { body, ...properties } = result;
+        return {
+            ...(body && { body: this.outputFormat.apply(body) }),
+            ...properties,
+        };
     }
 
-    private createResponse(result: IAPIGatewayResponse): APIGatewayProxyResult {
+    private createResponse(result: APIGatewayResponse): APIGatewayProxyResult {
         result.headers = this.createHeaders(result.headers);
         return this.formatOutput(result);
     }
 
-    private createHeaders(headers: IHeaders | undefined): IHeaders {
+    private createHeaders(headers: Headers | undefined): Headers {
         return {
             ...headers,
             ...(this.corsHeader && this.corsHeader.create()),
-            ...(this.outputFormat && new ContentTypeHeader(this.outputFormat.contentType).create())
+            ...(this.outputFormat && new ContentTypeHeader(this.outputFormat.contentType).create()),
         };
     }
 }

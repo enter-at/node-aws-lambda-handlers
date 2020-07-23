@@ -1,16 +1,16 @@
-import {format} from '../decorator/format';
-import {FormatError} from '../error';
-import {IFormat} from './IFormat';
+import { format } from "../decorator/format";
+import { FormatError } from "../error";
+import { Format } from "./Format";
 
 export class InputFormat {
-    @format('application/json')
-    public static json(content: any): any {
+    @format("application/json")
+    public static json(content: string): unknown {
         try {
             return JSON.parse(content);
         } catch (err) {
-            throw new FormatError('Invalid JSON input.');
+            throw new FormatError("Invalid JSON input.");
         }
     }
 }
 
-export const json: IFormat = InputFormat.json as unknown as IFormat;
+export const json: Format = (InputFormat.json as unknown) as Format;

@@ -1,11 +1,11 @@
-import {format} from '../decorator/format';
-import {IFormat} from './IFormat';
+import { format } from "../decorator/format";
+import { Format } from "./Format";
 
 export class OutputFormat {
-    @format('application/json')
-    public static json(content: any): any {
+    @format("application/json")
+    public static json(content: unknown): string {
         return JSON.stringify(content);
     }
 }
 
-export const json: IFormat = OutputFormat.json as unknown as IFormat;
+export const json: Format = (OutputFormat.json as unknown) as Format;

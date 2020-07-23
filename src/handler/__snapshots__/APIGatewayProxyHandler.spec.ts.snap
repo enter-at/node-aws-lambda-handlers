@@ -107,6 +107,18 @@ Object {
 }
 `;
 
+exports[`APIGatewayProxyHandler handles UnauthorizedError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"UnauthorizedError\\",\\"details\\":\\"UnauthorizedError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 401,
+}
+`;
+
 exports[`APIGatewayProxyHandler handles ValidationError response correctly 1`] = `
 Object {
   "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"ValidationError message\\"}]}",

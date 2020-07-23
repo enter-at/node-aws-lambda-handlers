@@ -8,8 +8,9 @@ import {
     FormatError,
     ForbiddenError,
     BadRequestError,
+    UnauthorizedError,
 } from "../error";
-import { ok, created, noContent } from '../response'
+import { ok, created, noContent } from "../response";
 import * as ContextFactory from "../../test/fixtures/ContextFactory";
 import * as APIGatewayProxyEventFactory from "../../test/fixtures/APIGatewayProxyEventFactory";
 
@@ -26,28 +27,28 @@ describe(APIGatewayProxyHandler.name, () => {
 
     it("handles HTTP 200 response correctly", async () => {
         const fn = handler.wrapper(() => {
-            return ok({ result: "HTTP 200" })
+            return ok({ result: "HTTP 200" });
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
     it("handles HTTP 201 response correctly", async () => {
         const fn = handler.wrapper(() => {
-            return created({ result: "HTTP 201" })
+            return created({ result: "HTTP 201" });
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
     it("handles HTTP 204 response correctly", async () => {
         const fn = handler.wrapper(() => {
-            return noContent()
+            return noContent();
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -56,7 +57,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new BadRequestError("BadRequestError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -65,7 +66,16 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new ForbiddenError("ForbiddenError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
+        expect(result).toMatchSnapshot();
+    });
+
+    it("handles UnauthorizedError response correctly", async () => {
+        const fn = handler.wrapper(() => {
+            throw new UnauthorizedError("UnauthorizedError message");
+        }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -74,7 +84,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new FormatError("FormatError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -83,7 +93,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new InternalServerError("InternalServerError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -92,7 +102,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new NotFoundError("NotFoundError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -101,7 +111,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new RequestTimeoutError("RequestTimeoutError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 
@@ -110,7 +120,7 @@ describe(APIGatewayProxyHandler.name, () => {
             throw new ValidationError("ValidationError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
-        const result = await fn(event, context, () => {});
+        const result = await fn(event, context, () => undefined);
         expect(result).toMatchSnapshot();
     });
 });
