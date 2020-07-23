@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v1.2.0...v2.0.0) (2020-07-23)
+
+
+### Features
+
+* **errors:** expose UnauthorizedError ([51fc5cc](https://github.com/enter-at/node-aws-lambda-handlers/commit/51fc5cc2b68ee3831b0b8d1a0310521e46283ac5))
+
+
+### BREAKING CHANGES
+
+* **errors:** rename of all interfaces remove leading "I"
+
 # [1.2.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v1.1.1...v1.2.0) (2020-07-14)
 
 
