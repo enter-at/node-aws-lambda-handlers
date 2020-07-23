@@ -10,6 +10,7 @@ import {
     BadRequestError,
     UnauthorizedError,
 } from "../error";
+import { ok, created, noContent } from '../response'
 import * as ContextFactory from "../../test/fixtures/ContextFactory";
 import * as APIGatewayProxyEventFactory from "../../test/fixtures/APIGatewayProxyEventFactory";
 
@@ -22,6 +23,33 @@ describe(APIGatewayProxyHandler.name, () => {
         handler = new APIGatewayProxyHandler();
         context = ContextFactory.factory();
         event = APIGatewayProxyEventFactory.factory();
+    });
+
+    it("handles HTTP 200 response correctly", async () => {
+        const fn = handler.wrapper(() => {
+            return ok({ result: "HTTP 200" })
+        }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+
+        const result = await fn(event, context, () => {});
+        expect(result).toMatchSnapshot();
+    });
+
+    it("handles HTTP 201 response correctly", async () => {
+        const fn = handler.wrapper(() => {
+            return created({ result: "HTTP 201" })
+        }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+
+        const result = await fn(event, context, () => {});
+        expect(result).toMatchSnapshot();
+    });
+
+    it("handles HTTP 204 response correctly", async () => {
+        const fn = handler.wrapper(() => {
+            return noContent()
+        }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+
+        const result = await fn(event, context, () => {});
+        expect(result).toMatchSnapshot();
     });
 
     it("handles BadRequestError response correctly", async () => {
