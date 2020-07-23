@@ -254,16 +254,14 @@ See [LICENSE](LICENSE) for full details.
 
 ### Contributors
 
-
-[![Steffen Leistner][sleistner_avatar]][sleistner_homepage]
-
-[![Martin Pirkl][pirklmar_avatar]][pirklmar_homepage]
-
+[![Steffen Leistner][sleistner_avatar]][sleistner_homepage][![Martin Pirkl][pirklmar_avatar]][pirklmar_homepage]
 
   [sleistner_homepage]: https://github.com/sleistner
-  [sleistner_avatar]: https://res.cloudinary.com/enter-at/image/fetch/f_png,r_max,w_100,h_100,c_thumb/https://github.com/sleistner.png
+  [sleistner_avatar]: https://avatars0.githubusercontent.com/u/12568?s=128&v=4
+
   [pirklmar_homepage]: https://github.com/pirklmar
-  [pirklmar_avatar]: https://res.cloudinary.com/enter-at/image/fetch/f_png,r_max,w_100,h_100,c_thumb/https://github.com/pirklmar.png
+  [pirklmar_avatar]: https://avatars3.githubusercontent.com/u/2109537?s=128&v=4
+
 
 
 
