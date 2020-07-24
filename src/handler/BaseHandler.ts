@@ -103,7 +103,11 @@ export abstract class BaseHandler {
         const handler = this;
         return async function fn(event: Event, context: Context): Promise<unknown> {
             try {
-                return handler.after(await method.apply(handler, handler.before(event, context)));
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                // eslint-disable-next-line @typescript-eslint/no-this-alias
+                const instance = this;
+                return handler.after(await method.apply(instance, handler.before(event, context)));
             } catch (err) {
                 return handler.onException(err);
             }
