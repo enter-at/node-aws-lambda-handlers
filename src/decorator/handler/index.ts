@@ -1,7 +1,6 @@
 import * as handlers from "../../handler";
-import { APIGatewayProxyEvent, Context, APIGatewayProxyResult } from "aws-lambda";
 
-type Handler = (event: APIGatewayProxyEvent, context: Context) => Promise<APIGatewayProxyResult>;
+type Handler = (_target: unknown, _propertyName: string, propertyDescriptor: PropertyDescriptor) => PropertyDescriptor;
 
 export function APIGatewayProxyHandler(args?: handlers.APIGatewayProxyHandlerArguments): Handler {
     const handler = new handlers.APIGatewayProxyHandler(args);
