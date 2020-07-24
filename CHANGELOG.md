@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.0...v2.0.1) (2020-07-24)
+
+
+### Bug Fixes
+
+* **ApiGatewayProxyHandler:** use implicit type for decorator ([9ada1b1](https://github.com/enter-at/node-aws-lambda-handlers/commit/9ada1b1c1e07b0dc9e8359d3486289f0af96e6c0))
+
 # [2.0.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v1.2.0...v2.0.0) (2020-07-23)
 
 
