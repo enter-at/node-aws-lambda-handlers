@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.1...v2.0.2) (2020-07-24)
+
+
+### Bug Fixes
+
+* **BaseHandler:** ensure function scope ([34b2dac](https://github.com/enter-at/node-aws-lambda-handlers/commit/34b2dacac1961cdaa56c3db2c027883cf49d8474))
+
 ## [2.0.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.0...v2.0.1) (2020-07-24)
 
 
