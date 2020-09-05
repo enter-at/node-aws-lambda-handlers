@@ -41,7 +41,7 @@
     "dependencies": {},
     "devDependencies": {
         "@enter-at/eslint-config-typescript-prettier": "1.1.0",
-        "@types/aws-lambda": "8.10.61",
+        "@types/aws-lambda": "8.10.62",
         "@types/aws-sdk": "2.7.0",
         "@types/faker": "4.1.12",
         "@types/jest": "26.0.13",
