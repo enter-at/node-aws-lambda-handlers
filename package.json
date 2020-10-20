@@ -44,7 +44,7 @@
         "@types/aws-lambda": "8.10.64",
         "@types/aws-sdk": "2.7.0",
         "@types/faker": "4.1.12",
-        "@types/jest": "26.0.14",
+        "@types/jest": "26.0.15",
         "aws-lambda": "1.0.6",
         "eslint": "7.11.0",
         "aws-sdk": "2.774.0",
