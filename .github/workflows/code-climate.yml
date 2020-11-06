@@ -8,6 +8,7 @@ on:
     tags:
       - '!*'
     paths:
+      - .github/workflows/code-climate.yml
       - src/*
       - test/*
       - '*.json'
@@ -21,13 +22,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+
       - uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: npm install
+
       - uses: paambaati/codeclimate-action@v2.7.4
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: npm run test:coverage
           coverageLocations: ${{github.workspace}}/test-reports/lcov.info:lcov
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Store test reports
+          path: ${{ github.workspace }}/test-reports/**/*
