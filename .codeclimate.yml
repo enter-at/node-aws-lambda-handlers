@@ -5,11 +5,10 @@ plugins:
     enabled: true
   git-legal:
     enabled: true
+  eslint:
+    enabled: true
 
 exclude_patterns:
-  - "node_modules/**"
-  - "package-lock.json"
-  - "test"
-  - "**/__snapshots__"
-  - "**/*.spec.ts"
-  - ".eslintrc.js"
+  - "**/.*"
+  - "**/*"
+  - "!src/**/*.ts"
