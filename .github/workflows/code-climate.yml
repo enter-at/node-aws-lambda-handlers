@@ -1,0 +1,33 @@
+---
+name: CodeClimate report
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '!*'
+    paths:
+      - src/*
+      - test/*
+      - '*.json'
+  pull_request:
+    paths:
+      - '!*.md'
+      - '!*.yaml'
+jobs:
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm install
+      - uses: paambaati/codeclimate-action@v2.2.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: npm run test:coverage
+          coverageLocations: ${{github.workspace}}/test-reports/lcov.info:lcov

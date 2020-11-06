@@ -43,6 +43,12 @@ badges:
     - name: "Install size"
       image: "https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers"
       url: "https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers"
+    - name: "Code Climate Maintainability"
+      image: "https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability"
+      url: "https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability"
+    - name: "Code Climate Test Coverage"
+      image: "https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage"
+      url: "https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage"
 
 # Short description of this project
 description: |-

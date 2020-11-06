@@ -1,0 +1,14 @@
+plugins:
+  editorconfig:
+    enabled: true
+  fixme:
+    enabled: true
+  git-legal:
+    enabled: true
+
+exclude_patterns:
+  - "node_modules/**"
+  - "package-lock.json"
+  - "test"
+  - "**/__snapshots__"
+  - "**/*.spec.ts"
