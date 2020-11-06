@@ -20,7 +20,7 @@ jobs:
       - run: npm install
       - run: npm run lint
   test:
-    name: Run tests with nodejs version ${{ matrix.node }}
+    name: Run tests with ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
