@@ -37,5 +37,5 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Store test reports
+          name: Test Reports
           path: ${{ github.workspace }}/test-reports/**/*
