@@ -12,3 +12,4 @@ exclude_patterns:
   - "test"
   - "**/__snapshots__"
   - "**/*.spec.ts"
+  - ".eslintrc.js"
