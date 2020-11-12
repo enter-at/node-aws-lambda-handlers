@@ -7,3 +7,4 @@ export { NotFoundError } from "./NotFoundError";
 export { RequestTimeoutError } from "./RequestTimeoutError";
 export { UnauthorizedError } from "./UnauthorizedError";
 export { ValidationError } from "./ValidationError";
+export { UnprocessableEntityError } from "./UnprocessableEntityError";

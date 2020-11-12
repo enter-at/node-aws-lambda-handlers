@@ -8,6 +8,7 @@ import {
     ValidationError,
     UnauthorizedError,
 } from "../error";
+import { UnprocessableEntityError } from "../error/UnprocessableEntityError";
 import { ContentTypeHeader, CORSHeader, Header, Headers } from "../header";
 import {
     badRequest,
@@ -19,6 +20,7 @@ import {
     ok,
     requestTimeout,
     unauthorized,
+    unprocessableEntity,
 } from "../response";
 import { BaseHandler, BaseHandlerArguments } from "./BaseHandler";
 
@@ -39,6 +41,9 @@ export class APIGatewayProxyHandler extends BaseHandler {
         }
         if (err instanceof RequestTimeoutError) {
             return requestTimeout(err.details);
+        }
+        if (err instanceof UnprocessableEntityError) {
+            return unprocessableEntity(err.details);
         }
         if (err instanceof NotFoundError) {
             return notFound(err.details);
