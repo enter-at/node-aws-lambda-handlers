@@ -8,6 +8,7 @@ import {
     NotFoundError,
     RequestTimeoutError,
     UnauthorizedError,
+    UnprocessableEntityError,
 } from "./error";
 
 export interface APIGatewayResponse extends Omit<APIGatewayProxyResult, "body"> {
@@ -42,6 +43,11 @@ export function notFound(details: string | undefined): APIGatewayResponse {
 export function requestTimeout(details: string | undefined): APIGatewayResponse {
     const error: RequestTimeoutError = new RequestTimeoutError(details);
     return buildResult<RequestTimeoutError>(error, constants.HTTP_STATUS_REQUEST_TIMEOUT);
+}
+
+export function unprocessableEntity(details: string | undefined): APIGatewayResponse {
+    const error: UnprocessableEntityError = new UnprocessableEntityError(details);
+    return buildResult<UnprocessableEntityError>(error, constants.HTTP_STATUS_UNPROCESSABLE_ENTITY);
 }
 
 export function ok<T>(result: T): APIGatewayResponse {

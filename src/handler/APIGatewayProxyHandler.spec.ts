@@ -13,6 +13,7 @@ import {
 import { ok, created, noContent } from "../response";
 import * as ContextFactory from "../../test/fixtures/ContextFactory";
 import * as APIGatewayProxyEventFactory from "../../test/fixtures/APIGatewayProxyEventFactory";
+import { UnprocessableEntityError } from "../error/UnprocessableEntityError";
 
 describe(APIGatewayProxyHandler.name, () => {
     let handler: APIGatewayProxyHandler;
@@ -118,6 +119,15 @@ describe(APIGatewayProxyHandler.name, () => {
     it("handles ValidationError response correctly", async () => {
         const fn = handler.wrapper(() => {
             throw new ValidationError("ValidationError message");
+        }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
+
+        const result = await fn(event, context, () => undefined);
+        expect(result).toMatchSnapshot();
+    });
+
+    it("handles UnprocessableEntityError response correctly", async () => {
+        const fn = handler.wrapper(() => {
+            throw new UnprocessableEntityError("UnprocessableEntityError message");
         }) as Handler<APIGatewayProxyEvent, APIGatewayProxyResult>;
 
         const result = await fn(event, context, () => undefined);
