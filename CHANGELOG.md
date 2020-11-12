@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.2...v2.1.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* **ci:** update release token ([3c27ec0](https://github.com/enter-at/node-aws-lambda-handlers/commit/3c27ec0e45ac84ffca9ce93264b373577c10a54c))
+
+
+### Features
+
+* **errors:** add unprocessable entity error handling ([2b97792](https://github.com/enter-at/node-aws-lambda-handlers/commit/2b97792ba18667214d910452c513472eb91681ed))
+
 ## [2.0.2](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.1...v2.0.2) (2020-07-24)
 
 
