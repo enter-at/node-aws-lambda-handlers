@@ -15,9 +15,7 @@
         "build:compile": "tsc -p tsconfig.build.json",
         "build:copy": "cp LICENSE README.md package.json dist/",
         "clean": "rimraf ./dist",
-        "prepare": "npm run build",
-        "preversion": "npm run lint",
-        "prepublishOnly": "npm test && npm run lint"
+        "prepare": "npm test && npm run lint && npm run build"
     },
     "repository": {
         "type": "git",
