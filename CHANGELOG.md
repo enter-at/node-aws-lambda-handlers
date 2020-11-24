@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.1.0...v3.0.0) (2020-11-24)
+
+
+### Bug Fixes
+
+* **build:** do not copy npmrc files ([40d5668](https://github.com/enter-at/node-aws-lambda-handlers/commit/40d566818104060d13cf029044b6294c4d34bd80))
+* **build:** ensure slim package structure ([be8998b](https://github.com/enter-at/node-aws-lambda-handlers/commit/be8998b160433c52dfa7d877cba60e2f1ed6e698))
+* **build:** remove version* scripts ([544b384](https://github.com/enter-at/node-aws-lambda-handlers/commit/544b384b899a30c6650091bd31c3f49909fa1afd))
+
+
+### BREAKING CHANGES
+
+* **build:** "dist" directory has been removed from the build artifact
+
 # [2.1.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.0.2...v2.1.0) (2020-11-12)
 
 
