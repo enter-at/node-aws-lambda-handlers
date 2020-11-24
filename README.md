@@ -12,7 +12,7 @@
 
 [<img src="https://res.cloudinary.com/enter-at/image/upload/v1576145406/static/logo-svg.svg" alt="enter-at" width="100">][website]
 
-# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers)](https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers) [![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability) [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage)
+# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.com/badge?p=@enter-at/lambda-handlers)](https://packagephobia.com/result?p=@enter-at/lambda-handlers) [![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability) [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage)
 
 
 An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation,
@@ -196,6 +196,22 @@ ValidationError
 
 
 
+## Share the Love
+
+Like this project?
+Please give it a ★ on [our GitHub](https://github.com/enter-at/node-aws-lambda-handlers)!
+
+
+## Related Projects
+
+Check out these related projects.
+
+- [python-aws-lambda-handlers](https://github.com/enter-at/python-aws-lambda-handlers) - An opinionated Python module that facilitates specifying AWS Lambda handlers including
+input validation, error handling and response formatting.
+
+
+
+
 ## Help
 
 **Got a question?**
@@ -249,18 +265,6 @@ See [LICENSE](LICENSE) for full details.
     specific language governing permissions and limitations
     under the License.
 
-
-
-
-### Contributors
-
-[![Steffen Leistner][sleistner_avatar]][sleistner_homepage][![Martin Pirkl][pirklmar_avatar]][pirklmar_homepage]
-
-  [sleistner_homepage]: https://github.com/sleistner
-  [sleistner_avatar]: https://avatars0.githubusercontent.com/u/12568?s=128&v=4
-
-  [pirklmar_homepage]: https://github.com/pirklmar
-  [pirklmar_avatar]: https://avatars3.githubusercontent.com/u/2109537?s=128&v=4
 
 
 
