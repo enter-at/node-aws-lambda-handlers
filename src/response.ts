@@ -58,7 +58,7 @@ export function created<T>(result: T): APIGatewayResponse {
     return buildResult<T>(result, constants.HTTP_STATUS_CREATED);
 }
 
-export function noContent<T>(): APIGatewayResponse {
+export function noContent(): APIGatewayResponse {
     return buildResult<null>(null, constants.HTTP_STATUS_NO_CONTENT);
 }
 

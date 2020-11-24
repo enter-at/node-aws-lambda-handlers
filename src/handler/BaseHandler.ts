@@ -130,7 +130,7 @@ export abstract class BaseHandler {
         return this.inputFormat.apply(input);
     }
 
-    protected formatOutput<T>(output: unknown): unknown {
+    protected formatOutput(output: unknown): unknown {
         return this.outputFormat.apply(output);
     }
 }

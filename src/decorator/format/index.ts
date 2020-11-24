@@ -1,6 +1,6 @@
 import { Format } from "../../format/Format";
 
-class FormatDecorator<T> implements Format {
+class FormatDecorator implements Format {
     constructor(readonly contentType: string, private formatter: (content: unknown) => unknown) {}
 
     public apply<T>(content: unknown): T {
