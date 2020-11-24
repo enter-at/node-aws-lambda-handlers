@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.0.0...v3.0.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* **build:** update release workflow ([0c6e1d2](https://github.com/enter-at/node-aws-lambda-handlers/commit/0c6e1d2ac53800391af278839db8241e13c33f83))
+
 # [3.0.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v2.1.0...v3.0.0) (2020-11-24)
 
 
