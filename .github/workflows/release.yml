@@ -1,9 +1,13 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Code checks and tests"
     branches:
       - master
+    types:
+      - completed
 
 jobs:
   release:
@@ -15,6 +19,8 @@ jobs:
         with:
           node-version: 12.x
       - run: npm install
+      - name: Run build
+        run: npm run build
       - uses: cycjimmy/semantic-release-action@master
         id: semantic
         with:
