@@ -41,14 +41,21 @@ badges:
       image: "https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg"
       url: "https://www.npmjs.com/package/@enter-at/lambda-handlers"
     - name: "Install size"
-      image: "https://packagephobia.now.sh/badge?p=@enter-at/lambda-handlers"
-      url: "https://packagephobia.now.sh/result?p=@enter-at/lambda-handlers"
+      image: "https://packagephobia.com/badge?p=@enter-at/lambda-handlers"
+      url: "https://packagephobia.com/result?p=@enter-at/lambda-handlers"
     - name: "Code Climate Maintainability"
       image: "https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability"
       url: "https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability"
     - name: "Code Climate Test Coverage"
       image: "https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage"
       url: "https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage"
+
+related:
+  - name: "python-aws-lambda-handlers"
+    description: |
+        An opinionated Python module that facilitates specifying AWS Lambda handlers including
+        input validation, error handling and response formatting.
+    url: "https://github.com/enter-at/python-aws-lambda-handlers"
 
 # Short description of this project
 description: |-
@@ -66,13 +73,3 @@ include:
     - "docs/status-code.md"
     - "docs/headers.md"
     - "docs/errors.md"
-
-# Contributors to this project
-contributors:
-    - name: "Steffen Leistner"
-      github: "sleistner"
-      avatar: https://avatars0.githubusercontent.com/u/12568?s=128&v=4
-
-    - name: "Martin Pirkl"
-      github: "pirklmar"
-      avatar: https://avatars3.githubusercontent.com/u/2109537?s=128&v=4
