@@ -10,9 +10,8 @@
 
   -->
 
-[<img src="https://res.cloudinary.com/enter-at/image/upload/v1576145406/static/logo-svg.svg" alt="enter-at" width="100">][website]
-
-# node-aws-lambda-handlers [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.com/badge?p=@enter-at/lambda-handlers)](https://packagephobia.com/result?p=@enter-at/lambda-handlers) [![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability) [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage)
+# node-aws-lambda-handlers
+ [![Build Status](https://github.com/enter-at/node-aws-lambda-handlers/workflows/Lint%20&%20Test/badge.svg)](https://github.com/enter-at/node-aws-lambda-handlers/actions) [![Release](https://img.shields.io/npm/v/@enter-at/lambda-handlers.svg)](https://www.npmjs.com/package/@enter-at/lambda-handlers) [![Install size](https://packagephobia.com/badge?p=@enter-at/lambda-handlers)](https://packagephobia.com/result?p=@enter-at/lambda-handlers) [![Code Climate Maintainability](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/maintainability)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/maintainability) [![Code Climate Test Coverage](https://api.codeclimate.com/v1/badges/9a0d3859c2196e212e96/test_coverage)](https://codeclimate.com/github/enter-at/node-aws-lambda-handlers/test_coverage)
 
 
 An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation,
@@ -23,6 +22,8 @@ error handling and response formatting.
 
 
 It's 100% Open Source and licensed under the [APACHE2](LICENSE).
+
+
 
 
 
@@ -267,6 +268,3 @@ See [LICENSE](LICENSE) for full details.
 
 
 
-
-
-  [website]: https://github.com/enter-at
