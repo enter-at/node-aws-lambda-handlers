@@ -10,6 +10,7 @@ import {
 } from "../error";
 import { UnprocessableEntityError } from "../error/UnprocessableEntityError";
 import { ContentTypeHeader, CORSHeader, Header, Headers } from "../header";
+import logger from "../logger";
 import {
     badRequest,
     forbidden,
@@ -48,6 +49,11 @@ export class APIGatewayProxyHandler extends BaseHandler {
         if (err instanceof NotFoundError) {
             return notFound(err.details);
         }
+        logger.error({
+            name: err.name,
+            message: err.message,
+            stack: err.stack,
+        });
         return internalServerError();
     }
 
