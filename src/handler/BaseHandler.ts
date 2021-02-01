@@ -37,10 +37,13 @@ import {
 import { Format } from "../format/Format";
 import * as inputFormat from "../format/InputFormat";
 import * as outputFormat from "../format/OutputFormat";
+import { Logger } from "../logger";
+import { config } from "../index";
 
 export interface BaseHandlerArguments {
     inputFormat?: Format;
     outputFormat?: Format;
+    logger?: Logger;
 }
 
 type Event =
@@ -84,9 +87,12 @@ export abstract class BaseHandler {
     protected inputFormat: Format;
     protected outputFormat: Format;
 
-    constructor(args?: BaseHandlerArguments) {
+    protected constructor(args?: BaseHandlerArguments) {
         this.inputFormat = args?.inputFormat ?? inputFormat.json;
         this.outputFormat = args?.outputFormat ?? outputFormat.json;
+        if (args?.logger) {
+            config.logger = args.logger;
+        }
     }
 
     public decorator(

@@ -8,7 +8,7 @@ import {
     ValidationError,
     UnauthorizedError,
 } from "../error";
-import { UnprocessableEntityError } from "../error/UnprocessableEntityError";
+import { UnprocessableEntityError } from "../error";
 import { ContentTypeHeader, CORSHeader, Header, Headers } from "../header";
 import {
     badRequest,
@@ -23,6 +23,7 @@ import {
     unprocessableEntity,
 } from "../response";
 import { BaseHandler, BaseHandlerArguments } from "./BaseHandler";
+import { config } from "../index";
 
 export interface APIGatewayProxyHandlerArguments extends BaseHandlerArguments {
     cors?: CORSHeader;
@@ -48,10 +49,15 @@ export class APIGatewayProxyHandler extends BaseHandler {
         if (err instanceof NotFoundError) {
             return notFound(err.details);
         }
+        config.logger.error({
+            name: err.name,
+            message: err.message,
+            stack: err.stack,
+        });
         return internalServerError();
     }
 
-    private corsHeader: Header;
+    private readonly corsHeader: Header;
 
     constructor(args?: APIGatewayProxyHandlerArguments) {
         super(args);
