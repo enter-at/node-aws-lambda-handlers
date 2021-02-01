@@ -1,3 +1,11 @@
+# [3.1.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.0.1...v3.1.0) (2021-02-01)
+
+
+### Features
+
+* **config:** make logger a config property ([e5212c5](https://github.com/enter-at/node-aws-lambda-handlers/commit/e5212c5178973583d59a76f624fa147fe9921e9b))
+* **logger:** log internal server errors ([333d723](https://github.com/enter-at/node-aws-lambda-handlers/commit/333d7235c058f4e71bc2e730e28960bb98a065ef))
+
 ## [3.0.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.0.0...v3.0.1) (2020-11-24)
 
 
