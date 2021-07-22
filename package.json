@@ -46,12 +46,12 @@
         "aws-sdk": "2.952.0",
         "faker": "4.1.0",
         "husky": "4.3.8",
-        "jest": "26.6.3",
+        "jest": "27.0.6",
         "jest-dot-reporter": "1.0.14",
         "jest-junit": "11.1.0",
         "prettier": "2.2.1",
         "rimraf": "3.0.2",
-        "ts-jest": "26.5.6",
+        "ts-jest": "27.0.4",
         "typescript": "3.9.10"
     },
     "jest": {
