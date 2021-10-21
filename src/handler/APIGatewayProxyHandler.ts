@@ -7,8 +7,9 @@ import {
     RequestTimeoutError,
     ValidationError,
     UnauthorizedError,
+    UnprocessableEntityError,
+    ConflictError,
 } from "../error";
-import { UnprocessableEntityError } from "../error";
 import { ContentTypeHeader, CORSHeader, Header, Headers } from "../header";
 import {
     badRequest,
@@ -21,6 +22,7 @@ import {
     requestTimeout,
     unauthorized,
     unprocessableEntity,
+    conflict,
 } from "../response";
 import { BaseHandler, BaseHandlerArguments } from "./BaseHandler";
 import { config } from "../index";
@@ -48,6 +50,9 @@ export class APIGatewayProxyHandler extends BaseHandler {
         }
         if (err instanceof NotFoundError) {
             return notFound(err.details);
+        }
+        if (err instanceof ConflictError) {
+            return conflict(err.details);
         }
         config.logger.error({
             name: err.name,

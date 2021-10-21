@@ -12,6 +12,18 @@ Object {
 }
 `;
 
+exports[`APIGatewayProxyHandler handles ConflictError response correctly 1`] = `
+Object {
+  "body": "{\\"errors\\":[{\\"name\\":\\"ConflictError\\",\\"details\\":\\"ConflictError message\\"}]}",
+  "headers": Object {
+    "Access-Control-Allow-Credentials": true,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
+  },
+  "statusCode": 409,
+}
+`;
+
 exports[`APIGatewayProxyHandler handles ForbiddenError response correctly 1`] = `
 Object {
   "body": "{\\"errors\\":[{\\"name\\":\\"ForbiddenError\\",\\"details\\":\\"ForbiddenError message\\"}]}",

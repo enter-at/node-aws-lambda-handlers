@@ -10,6 +10,7 @@ import {
     UnauthorizedError,
     UnprocessableEntityError,
 } from "./error";
+import { ConflictError } from "./error/ConflictError";
 
 export interface APIGatewayResponse extends Omit<APIGatewayProxyResult, "body"> {
     body: unknown | undefined;
@@ -48,6 +49,11 @@ export function requestTimeout(details: string | undefined): APIGatewayResponse 
 export function unprocessableEntity(details: string | undefined): APIGatewayResponse {
     const error: UnprocessableEntityError = new UnprocessableEntityError(details);
     return buildResult<UnprocessableEntityError>(error, constants.HTTP_STATUS_UNPROCESSABLE_ENTITY);
+}
+
+export function conflict(details: string | undefined): APIGatewayResponse {
+    const error: ConflictError = new ConflictError(details);
+    return buildResult<ConflictError>(error, constants.HTTP_STATUS_CONFLICT);
 }
 
 export function ok<T>(result: T): APIGatewayResponse {
