@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.1.0...v3.2.0) (2021-10-21)
+
+
+### Features
+
+* **errors:** add support for http 409 conflict ([e80d2cf](https://github.com/enter-at/node-aws-lambda-handlers/commit/e80d2cf70cea646fd2d6b47b6aead4323a4a6064))
+
 # [3.1.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.0.1...v3.1.0) (2021-02-01)
 
 
