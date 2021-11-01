@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.2.0...v3.2.1) (2021-11-01)
+
+
+### Bug Fixes
+
+* **LambdaHandlerError:** allow details to be passed as string array ([16f1076](https://github.com/enter-at/node-aws-lambda-handlers/commit/16f1076b75da391f1dea43d9c94ff73a14f03c2e))
+
 # [3.2.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.1.0...v3.2.0) (2021-10-21)
 
 
