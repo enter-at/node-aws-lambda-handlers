@@ -25,8 +25,8 @@ jobs:
     strategy:
       matrix:
         node:
-          - 10.x
           - 12.x
+          - 14.x
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
