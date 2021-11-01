@@ -12,21 +12,22 @@ import {
 } from "./error";
 import { ConflictError } from "./error/ConflictError";
 
+type Details = string | string[] | undefined;
 export interface APIGatewayResponse extends Omit<APIGatewayProxyResult, "body"> {
     body: unknown | undefined;
 }
 
-export function badRequest(details: string | undefined): APIGatewayResponse {
+export function badRequest(details: Details): APIGatewayResponse {
     const error: BadRequestError = new BadRequestError(details);
     return buildResult<BadRequestError>(error, constants.HTTP_STATUS_BAD_REQUEST);
 }
 
-export function forbidden(details: string | undefined): APIGatewayResponse {
+export function forbidden(details: Details): APIGatewayResponse {
     const error: ForbiddenError = new ForbiddenError(details);
     return buildResult<ForbiddenError>(error, constants.HTTP_STATUS_FORBIDDEN);
 }
 
-export function unauthorized(details: string | undefined): APIGatewayResponse {
+export function unauthorized(details: Details): APIGatewayResponse {
     const error: UnauthorizedError = new UnauthorizedError(details);
     return buildResult<UnauthorizedError>(error, constants.HTTP_STATUS_UNAUTHORIZED);
 }
@@ -36,22 +37,22 @@ export function internalServerError(): APIGatewayResponse {
     return buildResult<InternalServerError>(error, constants.HTTP_STATUS_INTERNAL_SERVER_ERROR);
 }
 
-export function notFound(details: string | undefined): APIGatewayResponse {
+export function notFound(details: Details): APIGatewayResponse {
     const error: NotFoundError = new NotFoundError(details);
     return buildResult<NotFoundError>(error, constants.HTTP_STATUS_NOT_FOUND);
 }
 
-export function requestTimeout(details: string | undefined): APIGatewayResponse {
+export function requestTimeout(details: Details): APIGatewayResponse {
     const error: RequestTimeoutError = new RequestTimeoutError(details);
     return buildResult<RequestTimeoutError>(error, constants.HTTP_STATUS_REQUEST_TIMEOUT);
 }
 
-export function unprocessableEntity(details: string | undefined): APIGatewayResponse {
+export function unprocessableEntity(details: Details): APIGatewayResponse {
     const error: UnprocessableEntityError = new UnprocessableEntityError(details);
     return buildResult<UnprocessableEntityError>(error, constants.HTTP_STATUS_UNPROCESSABLE_ENTITY);
 }
 
-export function conflict(details: string | undefined): APIGatewayResponse {
+export function conflict(details: Details): APIGatewayResponse {
     const error: ConflictError = new ConflictError(details);
     return buildResult<ConflictError>(error, constants.HTTP_STATUS_CONFLICT);
 }
