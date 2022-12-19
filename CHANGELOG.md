@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.2.1...v4.0.0) (2022-12-19)
+
+
+### Features
+
+* update node version 18 ([3eb9a39](https://github.com/enter-at/node-aws-lambda-handlers/commit/3eb9a3968cd9aa60981c9dd79ba70c2b05de5df2))
+
+
+### BREAKING CHANGES
+
+* - node version >= 18 required
+- APIGatewayProxyHandler body mandatory response field
+
 ## [3.2.1](https://github.com/enter-at/node-aws-lambda-handlers/compare/v3.2.0...v3.2.1) (2021-11-01)
 
 
