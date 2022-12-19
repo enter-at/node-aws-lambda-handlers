@@ -1,4 +1,4 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { APIGatewayProxyEvent } from "aws-lambda/trigger/api-gateway-proxy";
 
 export function factory(): APIGatewayProxyEvent {
@@ -7,7 +7,7 @@ export function factory(): APIGatewayProxyEvent {
         headers: { header: faker.random.word() },
         multiValueHeaders: { x: [faker.random.word()] },
         httpMethod: faker.random.word(),
-        isBase64Encoded: faker.random.boolean(),
+        isBase64Encoded: faker.datatype.boolean(),
         path: faker.random.word(),
         pathParameters: null,
         queryStringParameters: null,
@@ -34,11 +34,12 @@ export function factory(): APIGatewayProxyEvent {
                 user: faker.random.word(),
                 userAgent: faker.random.word(),
                 userArn: faker.random.word(),
+                clientCert: null,
             },
             path: faker.random.word(),
             stage: faker.random.word(),
             requestId: faker.random.word(),
-            requestTimeEpoch: faker.random.number(),
+            requestTimeEpoch: faker.datatype.number(),
             resourceId: faker.random.word(),
             resourcePath: faker.random.word(),
         },

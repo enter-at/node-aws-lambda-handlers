@@ -115,7 +115,7 @@ export abstract class BaseHandler {
                 const instance = this;
                 return handler.after(await method.apply(instance, handler.before(event, context)));
             } catch (err) {
-                return handler.onException(err);
+                return handler.onException(err as Error);
             }
         };
     }

@@ -4,9 +4,12 @@
     "description": "An opinionated Typescript package that facilitates specifying AWS Lambda handlers including input validation, error handling and response formatting.",
     "main": "index.js",
     "types": "index.d.ts",
+    "engines": {
+        "node": ">=18"
+    },
     "scripts": {
         "lint": "eslint './src/**/*.ts'",
-        "test": "NODE_ENV=testing jest -b --reporters jest-dot-reporter",
+        "test": "NODE_ENV=testing jest --detectOpenHandles --no-cache -b --reporters jest-progress-bar-reporter",
         "test:verbose": "npm run test -- --reporters default",
         "test:coverage": "npm run test -- --coverage",
         "test:coverage:verbose": "npm run test:coverage -- --reporters default",
@@ -14,7 +17,8 @@
         "build": "npm run clean && npm run build:compile && npm run build:copy",
         "build:compile": "tsc -p tsconfig.build.json",
         "build:copy": "cp LICENSE README.md package.json dist/",
-        "clean": "rimraf ./dist"
+        "clean": "rimraf ./dist",
+        "prepare": "[ ! -x ./node_modules/.bin/husky ] && exit 0; husky install"
     },
     "repository": {
         "type": "git",
@@ -27,53 +31,35 @@
     ],
     "author": "Steffen Leistner",
     "contributors": [
-        "Martin Pirkl <martin.pirkl@gmail.com>"
+        "Martin Pirkl <martin.pirkl@gmail.com>",
+        "Steve Waldowski <steve.waldowski@exxeta.com>"
     ],
     "license": "Apache-2.0",
     "bugs": {
         "url": "https://github.com/enter-at/node-aws-lambda-handlers/issues"
     },
     "homepage": "https://github.com/enter-at/node-aws-lambda-handlers#readme",
-    "dependencies": {},
     "devDependencies": {
-        "@enter-at/eslint-config-typescript-prettier": "1.5.2",
-        "@types/aws-lambda": "8.10.76",
+        "@enter-at/eslint-config-typescript-prettier": "1.6.0",
+        "@faker-js/faker": "7.6.0",
+        "@tsconfig/node18": "1.0.1",
+        "@types/aws-lambda": "8.10.109",
         "@types/aws-sdk": "2.7.0",
-        "@types/faker": "4.1.12",
-        "@types/jest": "26.0.24",
+        "@types/jest": "29.2.4",
         "aws-lambda": "1.0.7",
-        "eslint": "7.32.0",
-        "aws-sdk": "2.1087.0",
-        "faker": "4.1.0",
-        "husky": "4.3.8",
-        "jest": "26.6.3",
-        "jest-dot-reporter": "1.0.14",
-        "jest-junit": "11.1.0",
-        "prettier": "2.2.1",
+        "aws-sdk": "2.1277.0",
+        "eslint": "8.30.0",
+        "husky": "8.0.2",
+        "jest": "29.3.1",
+        "jest-junit": "15.0.0",
+        "jest-progress-bar-reporter": "1.0.25",
+        "prettier": "2.8.1",
         "rimraf": "3.0.2",
-        "ts-jest": "26.5.6",
-        "typescript": "3.9.10"
-    },
-    "jest": {
-        "verbose": true,
-        "preset": "ts-jest",
-        "testEnvironment": "node",
-        "coverageDirectory": "test-reports",
-        "roots": [
-            "src"
-        ],
-        "reporters": [
-            "default",
-            "jest-junit"
-        ]
+        "ts-jest": "29.0.3",
+        "typescript": "4.9.4"
     },
     "jest-junit": {
         "outputDirectory": "test-reports/jest",
         "outputName": "report.xml"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "npm run lint && npm run test -- -b"
-        }
     }
 }

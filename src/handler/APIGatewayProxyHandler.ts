@@ -96,7 +96,7 @@ export class APIGatewayProxyHandler extends BaseHandler {
     protected formatOutput(result: APIGatewayResponse): APIGatewayProxyResult {
         const { body, ...properties } = result;
         return {
-            ...(body && { body: this.outputFormat.apply(body) }),
+            body: body ? this.outputFormat.apply(body) : "",
             ...properties,
         };
     }

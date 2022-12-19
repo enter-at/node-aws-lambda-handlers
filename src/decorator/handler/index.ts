@@ -4,5 +4,5 @@ type Handler = (_target: unknown, _propertyName: string, propertyDescriptor: Pro
 
 export function APIGatewayProxyHandler(args?: handlers.APIGatewayProxyHandlerArguments): Handler {
     const handler = new handlers.APIGatewayProxyHandler(args);
-    return (handler.decorator.bind(handler) as unknown) as Handler;
+    return handler.decorator.bind(handler) as unknown as Handler;
 }

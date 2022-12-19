@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`APIGatewayProxyHandler handles BadRequestError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"BadRequestError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"BadRequestError","details":"BadRequestError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -13,9 +13,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles ConflictError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"ConflictError\\",\\"details\\":\\"ConflictError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"ConflictError","details":"ConflictError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -25,9 +25,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles ForbiddenError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"ForbiddenError\\",\\"details\\":\\"ForbiddenError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"ForbiddenError","details":"ForbiddenError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -37,9 +37,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles FormatError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"FormatError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"BadRequestError","details":"FormatError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -49,9 +49,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles HTTP 200 response correctly 1`] = `
-Object {
-  "body": "{\\"result\\":\\"HTTP 200\\"}",
-  "headers": Object {
+{
+  "body": "{"result":"HTTP 200"}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -61,9 +61,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles HTTP 201 response correctly 1`] = `
-Object {
-  "body": "{\\"result\\":\\"HTTP 201\\"}",
-  "headers": Object {
+{
+  "body": "{"result":"HTTP 201"}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -73,8 +73,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles HTTP 204 response correctly 1`] = `
-Object {
-  "headers": Object {
+{
+  "body": "",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -84,9 +85,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles InternalServerError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"InternalServerError\\",\\"details\\":\\"InternalServerError\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"InternalServerError","details":"InternalServerError"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -96,9 +97,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles NotFoundError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"NotFoundError\\",\\"details\\":\\"NotFoundError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"NotFoundError","details":"NotFoundError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -108,9 +109,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles RequestTimeoutError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"RequestTimeoutError\\",\\"details\\":\\"RequestTimeoutError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"RequestTimeoutError","details":"RequestTimeoutError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -120,9 +121,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles UnauthorizedError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"UnauthorizedError\\",\\"details\\":\\"UnauthorizedError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"UnauthorizedError","details":"UnauthorizedError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -132,9 +133,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles UnprocessableEntityError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"UnprocessableEntityError\\",\\"details\\":\\"UnprocessableEntityError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"UnprocessableEntityError","details":"UnprocessableEntityError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
@@ -144,9 +145,9 @@ Object {
 `;
 
 exports[`APIGatewayProxyHandler handles ValidationError response correctly 1`] = `
-Object {
-  "body": "{\\"errors\\":[{\\"name\\":\\"BadRequestError\\",\\"details\\":\\"ValidationError message\\"}]}",
-  "headers": Object {
+{
+  "body": "{"errors":[{"name":"BadRequestError","details":"ValidationError message"}]}",
+  "headers": {
     "Access-Control-Allow-Credentials": true,
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",

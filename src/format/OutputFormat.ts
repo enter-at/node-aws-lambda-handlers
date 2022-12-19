@@ -8,4 +8,4 @@ export class OutputFormat {
     }
 }
 
-export const json: Format = (OutputFormat.json as unknown) as Format;
+export const json: Format = OutputFormat.json as unknown as Format;
