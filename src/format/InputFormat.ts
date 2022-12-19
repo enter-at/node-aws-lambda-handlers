@@ -13,4 +13,4 @@ export class InputFormat {
     }
 }
 
-export const json: Format = (InputFormat.json as unknown) as Format;
+export const json: Format = InputFormat.json as unknown as Format;

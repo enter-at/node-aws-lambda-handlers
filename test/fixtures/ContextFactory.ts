@@ -1,9 +1,9 @@
-import faker from "faker";
+import { faker } from "@faker-js/faker";
 import { Context } from "aws-lambda/handler";
 
 export function factory(): Context {
     return {
-        callbackWaitsForEmptyEventLoop: faker.random.boolean(),
+        callbackWaitsForEmptyEventLoop: faker.datatype.boolean(),
         functionName: faker.random.word(),
         functionVersion: faker.random.word(),
         invokedFunctionArn: faker.random.word(),
@@ -11,9 +11,9 @@ export function factory(): Context {
         awsRequestId: faker.random.word(),
         logGroupName: faker.random.word(),
         logStreamName: faker.random.word(),
-        getRemainingTimeInMillis: () => faker.random.number(),
-        done: () => {},
-        fail: () => {},
-        succeed: () => {},
+        getRemainingTimeInMillis: () => faker.datatype.number(),
+        done: () => void 0,
+        fail: () => void 0,
+        succeed: () => void 0,
     };
 }
