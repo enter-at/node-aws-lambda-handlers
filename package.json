@@ -54,7 +54,7 @@
         "jest-junit": "15.0.0",
         "jest-progress-bar-reporter": "1.0.25",
         "prettier": "2.8.1",
-        "rimraf": "3.0.2",
+        "rimraf": "4.4.1",
         "ts-jest": "29.0.3",
         "typescript": "4.9.4"
     },
